@@ -10,7 +10,7 @@ object XMLHelloWorld {
         var ok = false;
 
       try {
-        val feedUrl = new URL("http://feeds.reuters.com/reuters/topNews");
+        val feedUrl = new URL("https://www.theatlantic.com/feed/all/");
 
         val input = new SyndFeedInput();
         val feed = input.build(new XmlReader(feedUrl));
