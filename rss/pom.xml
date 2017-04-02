@@ -10,4 +10,42 @@
   <artifactId>contextual-rss</artifactId>
   <modelVersion>4.0.0</modelVersion>
   <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.outworkers/phantom-connectors_2.11 -->
+        <dependency>
+            <groupId>com.outworkers</groupId>
+            <artifactId>phantom-connectors_2.12</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.outworkers</groupId>
+            <artifactId>phantom-dsl_2.12</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.outworkers</groupId>
+            <artifactId>phantom-jdk8_2.12</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.datastax.cassandra</groupId>
+            <artifactId>cassandra-driver-core</artifactId>
+            <version>3.1.4</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
+        <!-- Cassandra phantom connector does not work with java8 time, but joda time works-->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.9.9</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.outworkers/util-samplers_2.12 -->
+        <dependency>
+            <groupId>com.outworkers</groupId>
+            <artifactId>util-samplers_2.12</artifactId>
+            <version>0.30.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 </project>
