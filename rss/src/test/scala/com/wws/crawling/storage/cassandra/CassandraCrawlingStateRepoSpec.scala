@@ -1,14 +1,11 @@
 package com.wws.crawling.storage.cassandra
 
-import java.net.URI
-
-import com.datastax.driver.core.ResultSet
+import com.outworkers.phantom.dsl.context
 import com.outworkers.util.samplers.{Generators, Sample}
-import com.wws.crawling.storage.CrawlingState
+import com.wws.crawling.storage.CrawlingRecord
 import org.joda.time.{DateTime, DateTimeZone, LocalDate}
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.{BeforeAndAfterAll, FlatSpec, Matchers}
-import com.outworkers.phantom.dsl.context
 
 
 /**
@@ -34,8 +31,16 @@ class CassandraCrawlingStateRepoSpec extends FlatSpec with Matchers with BeforeA
     database.create()
   }
 
+  override def afterAll(): Unit = {
+    super.afterAll()
+
+    // If you need to reset the tables, enable the following line
+    // Note that it will wipe all data in the test database
+    // database.drop()
+  }
+
   it should "insert new crawling state in the table and retrieve it" in {
-      val sample = gen[CrawlingState]
+      val sample = gen[CrawlingRecord]
       val store = database.store(sample).future
       whenReady(store) { res =>
         res.isExhausted shouldBe true
