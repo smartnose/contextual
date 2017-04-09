@@ -18,5 +18,5 @@ object CrawlingRecord {
   */
 trait CrawlingRepo {
   def hasCrawled(url: String): Boolean
-  def save(crawlingRecord: CrawlingRecord)
+  def store(crawlingRecord: CrawlingRecord)
 }

@@ -7,6 +7,9 @@ import edu.uci.ics.crawler4j.crawler.{Page, WebCrawler}
 import edu.uci.ics.crawler4j.parser.HtmlParseData
 import edu.uci.ics.crawler4j.url.WebURL
 
+import scala.concurrent.Await
+import scala.concurrent.duration._
+
 /**
   * Created by smartnose on 4/2/17.
   */
@@ -22,7 +25,7 @@ abstract class HtmlCrawler extends WebCrawler {
      val href = url.getURL.toLowerCase
      (!FILTERS.matcher(href).matches
        && href.contains(url.getDomain) // limit the crawl within a single domain
-       && hasCrawled(href))
+       && !hasCrawled(href))
   }
 
   override def visit(page: Page) = {
@@ -33,7 +36,7 @@ abstract class HtmlCrawler extends WebCrawler {
       if (page.getParseData().isInstanceOf[HtmlParseData]) {
         val htmlParseData = page.getParseData.asInstanceOf[HtmlParseData]
         val text = htmlParseData.getText
-        save(CrawlingRecord(webUrl.getURL, webUrl.getDomain, text))
+        store(CrawlingRecord(webUrl.getURL, webUrl.getDomain, text))
       }
   }
 }

@@ -1,5 +1,6 @@
 package com.wws.crawling.storage.cassandra
 
+import com.outworkers.phantom.builder.query.ExecutableStatement
 import com.outworkers.phantom.dsl._
 import com.wws.crawling.storage.CrawlingRecord
 
@@ -21,9 +22,11 @@ abstract class CrawlingRecords extends CassandraTable[CrawlingRecords, CrawlingR
       .value(_.host, input.host)
       .value(_.lastCrawled, input.lastCrawled)
       .value(_.text, input.text)
+      .future
   }
 
   def findStateByURI(input: String) = select.where(_.uri eqs input).one
 
-  def hasCrawled(input: String) = findStateByURI(input).map(e => e.isDefined)
+  def hasCrawled(input: String) = findStateByURI(input)
+    .map(e => e.isDefined)
 }

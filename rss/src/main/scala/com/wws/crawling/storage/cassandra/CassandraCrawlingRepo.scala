@@ -13,7 +13,5 @@ trait CassandraCrawlingRepo extends CrawlingRepo {
     Await.result(CrawlingDatabase.hasCrawled(url), 5000 millis)
   }
 
-  override def save(crawlingRecord: CrawlingRecord) = {
-    CrawlingDatabase.store(crawlingRecord)
-  }
+  override def store(crawlingRecord: CrawlingRecord) = CrawlingDatabase.store(crawlingRecord)
 }
