@@ -5,12 +5,13 @@ import com.outworkers.util.samplers.{Generators, Sample}
 import com.wws.crawling.storage.CrawlingRecord
 import org.joda.time.{DateTime, DateTimeZone, LocalDate}
 import org.scalatest.concurrent.ScalaFutures
-import org.scalatest.{BeforeAndAfterAll, FlatSpec, Matchers}
+import org.scalatest.{BeforeAndAfterAll, FlatSpec, Ignore, Matchers}
 
 
 /**
   * Created by smartnose on 3/31/17.
   */
+@Ignore
 class CassandraCrawlingStateRepoSpec extends FlatSpec with Matchers with BeforeAndAfterAll with Generators with ScalaFutures with CrawlingDatabase.Connector {
   implicit object URISampler extends Sample[String] {
     override def sample: String = "http://wws.com/futurama1.html"

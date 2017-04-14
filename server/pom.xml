@@ -1,16 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
-        <groupId>com.wss</groupId>
+        <groupId>com.wws</groupId>
         <artifactId>contextual-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
         <relativePath>../parent/pom.xml</relativePath>
     </parent>
-  <groupId>com.wws</groupId>
-  <artifactId>contextual-server</artifactId>
-  <modelVersion>4.0.0</modelVersion>
-  <version>1.0-SNAPSHOT</version>
+    <groupId>com.wws</groupId>
+    <artifactId>contextual-server</artifactId>
+    <modelVersion>4.0.0</modelVersion>
+    <version>1.0-SNAPSHOT</version>
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor_2.12 -->
         <dependency>
             <groupId>com.typesafe.akka</groupId>
             <artifactId>akka-actor_2.12</artifactId>
